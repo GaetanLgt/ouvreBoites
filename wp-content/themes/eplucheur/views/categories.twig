@@ -1,0 +1,27 @@
+{% extends "base.twig" %}
+
+{% block head %}
+	<title>{{ categorie }}</title>
+{% endblock %}
+
+{% block content %}
+
+		<div class="container mod-container">	
+		<div class="masonry">
+			{% for post in posts %}                
+				<div class="grid">
+					<img src="{{ Image(post.image) }}">
+					<div class="grid__body">
+						<div class="relative">
+							<a class="grid__link" href="{{ post.link }}"></a>
+							<h1 class="grid__title">{{ post.title }}</h1>
+							<p class="grid__author">{{ post.auteur }}</p>
+						</div>
+						<div class="mt-auto">
+						</div>
+					</div>
+				</div>
+			{% endfor %}
+		</div>
+	</div>
+{% endblock %}

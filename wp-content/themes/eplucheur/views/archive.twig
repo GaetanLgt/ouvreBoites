@@ -1,0 +1,142 @@
+{% extends "base.twig" %}
+
+{% block head %}
+	<title>Calendrier / évènements</title>
+{% endblock %}
+
+{% block content %}
+
+
+	<section class="">
+		<div class="container mod-container">
+			{% if posts is not empty %}
+				{% set i = 0%}
+				<ul class="timeline">
+					{% for event in posts %}
+						{% set i = i+1 %}
+						<!-- Item 1 -->
+
+
+						{% if event.meta('type') == "evenements" %}
+							<li>
+								<div class="direction-r">
+									<span class="time-wrapper"></span>
+									<div class="flag time col-12 col-121">
+										<a class="liensnoir" href="{{ event.link }}">
+											<div class="row row-striped3">
+						<div class="col-7 ">
+
+													<ul class="list-inline text-center">
+														<li class="list-inline-item">
+															<i class="fa fa-calendar-o" aria-hidden="true"></i>
+															<span class='text-capitalize'>{{ event.dateDebut|date("l d F Y") }}</span><br/>
+															{% if event.date_de_fin is not empty %}
+																au<span class='text-capitalize'>
+																	{{ event.date_de_fin|date("l d F Y") }}</span>
+															{% endif %}
+														</li>
+													</ul>
+
+													<ul class="list-inline text-center">
+														<h3 class="text-uppercase text-center">
+															<strong>
+																{{ event.title }}
+															</strong>
+														</h3>
+													</ul>
+
+													<ul class="list-inline list-inline2 text-center">
+														<li class="list-inline-item">
+															<i class="fa fa-clock-o" aria-hidden="true"></i>
+															{% if event.meta('heure_du_debut_de_levenement') is empty%}
+																<span>Journée entière</span>
+															{% else %}
+																<span>{{ event.meta('heure_du_debut_de_levenement')|date("H:i") }}</span>
+																{% if event.meta('heure_du_fin_de_levenement') is not empty %}
+																	<span>
+																		-
+																	</span>
+																	<span>{{ event.meta('heure_du_fin_de_levenement')|date("H:i") }}</span>
+																{% endif %}
+															{% endif %}
+														</li>
+													</ul>
+													<ul class="list-inline list-inline2 text-center">
+														<li class="list-inline-item">
+															<i class="fa fa-location-arrow" aria-hidden="true"></i>
+															{{ event.meta('lieu') }}</li>
+													</ul>
+												</div>
+												<div class="col-5 no-padding" style="background-image: url('{{ Image(event.image)}}'); background-position: {{ event.meta('cadrage_de_limage')[" cadrage_horizontal"] }} {{ event.meta('cadrage_de_limage')[" cadrage_vertical"] }};"></div>
+											</div>
+										</div>
+									</a>
+								</div>
+							</li>
+						{% elseif event.meta('type') == "rendez-vous" %}
+							<li>
+								<div class="direction-l">
+									<span class="time-wrapper"></span>
+									<div class="flag time col-12 col-121">
+										<a class="liensnoir" href="{{ event.link }}">
+											<div class="row row-striped2">
+												<div class="col-5 no-padding" style="background-image: url('{{ Image(event.image)}}'); background-position: {{ event.meta('cadrage_de_limage')[" cadrage_horizontal"] }} {{ event.meta('cadrage_de_limage')[" cadrage_vertical"] }};"></div>
+												<div class="col-7 ">
+
+													<ul class="list-inline text-center">
+														<li class="list-inline-item">
+															<i class="fa fa-calendar-o" aria-hidden="true"></i>
+															<span class='text-capitalize'>{{ event.dateDebut|date("l d F Y") }}</span><br/>
+															{% if event.date_de_fin is not empty %}
+																au<span class='text-capitalize'>
+																	{{ event.date_de_fin|date("l d F Y") }}</span>
+															{% endif %}
+														</li>
+													</ul>
+
+													<ul class="list-inline text-center">
+														<h3 class="text-uppercase text-center">
+															<strong>
+																{{ event.title }}
+															</strong>
+														</h3>
+													</ul>
+
+													<ul class="list-inline list-inline2 text-center">
+														<li class="list-inline-item">
+															<i class="fa fa-clock-o" aria-hidden="true"></i>
+															{% if event.meta('heure_du_debut_de_levenement') is empty%}
+																<span>Journée entière</span>
+															{% else %}
+																<span>{{ event.meta('heure_du_debut_de_levenement')|date("H:i") }}</span>
+																{% if event.meta('heure_du_fin_de_levenement') is not empty %}
+																	<span>
+																		-
+																	</span>
+																	<span>{{ event.meta('heure_du_fin_de_levenement')|date("H:i") }}</span>
+																{% endif %}
+															{% endif %}
+														</li>
+													</ul>
+													<ul class="list-inline list-inline2 text-center">
+														<li class="list-inline-item">
+															<i class="fa fa-location-arrow" aria-hidden="true"></i>
+															{{ event.meta('lieu') }}</li>
+													</ul>
+												</div>
+											</div>
+										</div>
+									</a>
+								</div>
+							</li>
+						{% endif %}
+
+
+					{% endfor %}
+
+
+				</ul>
+			{% endif %}
+		</div>
+	</section>
+{% endblock %}

@@ -1,0 +1,68 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+		<div class="container mod-container">
+	<div class="row w-100 pb-2">
+		{% if menu.items is not empty %}
+			{% set  i = 0 %}
+			{% for item in menu.items %}
+				{% set i = i + 1 %}
+				{% if i == 1 %}
+
+					<div class="logoBox">
+					<a class="navbar-brand" href="/ouvreBoites"><img class="" src="{{ item.url|resize(140) }}"></a>
+					<a class="liensnoir d-flex" href="/ouvreBoites"><div class="rotating-dashed ">
+  					<span class="dashing"><i></i></span>
+ 					<span class="dashing"><i></i></span>
+  					<span class="dashing"><i></i></span>
+  					<span class="dashing"><i></i></span>
+  					<strong>pour sortir du prêt-à-penser</strong>
+					</div></a></div>
+					<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+						<span class="navbar-toggler-icon"></span>
+					</button>
+
+					<div class="align-items-end collapse navbar-collapse" id="navbarSupportedContent">
+						<ul class=" navbar-nav mx-auto">
+						{% else %}
+							
+							{% if item.children %}
+								<li class="nav-item dropdown">
+									<a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="{{ item.link }}"><strong>{{ item.title }}</strong>
+									</a>
+									<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+										{% for child in item.children %}
+											{% if child.children %}
+												<li class="nav-item dropright">
+													<button class="dropdown-item dropright-toggle" data-toggle="dropdown" href="{{ child.link }}">{{ child.title }}</button>
+													<div class="dropdown-menu">
+														{% for lien in child.children %}
+															<a class="nav-item dropdown-item" href="{{ lien.link }}">{{ lien.title }}</a>
+														{% endfor %}
+													</div>
+												</li>
+											{% else %}
+												<a class="dropdown-item" href="{{ child.link }}">{{ child.title }}</a>
+											{% endif %}
+										{% endfor %}
+									</ul>
+									
+									</li>
+
+								{% else %}
+									<li class="nav-item  {{ item.classes|join(' ') }}">
+										<a class="nav-link " href="{{ item.link }}"><strong>{{ item.title }}</strong></a>
+										
+									</li>
+									{% endif %}
+							{% endif %}
+							{% if item.title == "Logo" or item.title == "Contacts" %}
+							{% else %}
+								
+							<li class="nav-item mobile"><a class="nav-link ">|</a></li>
+							{% endif %}
+						{% endfor %}
+						</ul>
+				</div>
+			{% endif %}
+			</div>
+		</div>
+	</nav>

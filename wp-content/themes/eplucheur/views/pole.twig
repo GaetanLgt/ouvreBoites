@@ -1,0 +1,31 @@
+{% extends "base.twig" %}
+
+{% block head %}
+	<title>{{ post.title }}</title>
+{% endblock %}
+
+{% block content %}
+
+	<section>
+		<div class="container mod-container">	
+
+			
+					<div class="text-center py-4">
+						<h1>{{ post.title }}</h1>
+					</div>
+					<div class="poleImg rounded py-1" style="background-image: url('{{ Image(post.image)}}'); background-position: {{ post.meta('cadrage_de_limage')["cadrage_horizontal"] }} {{ post.meta('cadrage_de_limage')["cadrage_vertical"] }};"></div>
+				<div class="row py-1">
+				{% if post.content is not empty %}
+					<div class="contenu">
+				{{ post.content }}
+				</div>
+				{% endif %}
+				</div>
+				{% for item in post.meta('ligne') %}
+					{% include "/partials/ajoutContenu.twig" %}
+				{% endfor %}
+			
+		</div>
+
+	</section>
+{% endblock %}

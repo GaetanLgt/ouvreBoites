@@ -1,0 +1,89 @@
+{% extends "base.twig" %}
+
+{% block head %}
+	<title>{{ post.title }}</title>
+{% endblock %}
+
+{% block content %}
+
+	<div class="container mod-container">
+		<h1>Evènement</h1>
+
+		{% if post is not empty %}
+
+
+			<div class="row row-striped py-3 my-3">
+
+				{% set date = post.meta("dateDebut") %}
+				{% set dateFin = post.meta("date_de_fin") %}
+
+
+				<div class="col-sm-3 text-center ">
+					<div class="row justify-content-around align-items-center">
+						<div>
+							{% if date(date) <= date("now") %}
+								<h1 class="display-5">
+									<div class="badge badge-secondary">En cours</div>
+								</h1>
+							{% else %}
+								<h1 class="display-3">
+									<div class="badge badge-secondary">{{ date|date("d") }}</div>
+								</h1>
+								<h2 class="text-uppercase">{{ date|date("M") }}</h2>
+							{% endif %}
+						</div>
+						{% if dateFin is not empty %}
+							<div>
+								<span>jusqu'au</span>
+								<h1 class="display-5">
+									<div class="badge badge-secondary">{{ dateFin|date("d") }}</div>
+								</h1>
+								<h4 class="text-uppercase">{{ dateFin|date("M") }}</h4>
+							</div>
+						{% endif %}
+					</div>
+				</div>
+				<div class="col-sm-8 pl-3 ">
+					<h3 class="text-uppercase text-center">
+						<strong>
+							{{ post.titre }}
+						</strong>
+					</h3>
+					<ul class="list-inline text-center">
+						<li class="list-inline-item">
+							<i class="fa fa-calendar-o" aria-hidden="true"></i>
+							<span class='text-capitalize'>{{ date|date("l d F Y") }}</span>
+							{% if dateFin is not empty %}
+								au<span class='text-capitalize'>
+									{{ dateFin|date("l d F Y") }}</span>
+							{% endif %}
+						</li>
+
+						<li class="list-inline-item">
+							<i class="fa fa-location-arrow" aria-hidden="true"></i>
+							{{ post.meta('lieu') }}</li>
+					</ul>
+					<ul class="list-inline text-center">
+						<li class="list-inline-item">
+							<i class="fa fa-clock-o" aria-hidden="true"></i>
+							{% if post.meta('heure_du_debut_de_levenement') is empty%}
+								<span>Journée entière</span>
+							{% else %}
+								<span>{{ post.meta('heure_du_debut_de_levenement')|date("H:i") }}</span>
+								{% if post.meta('heure_du_fin_de_levenement') is not empty %}
+									<span>
+										-
+									</span>
+									<span>{{ post.meta('heure_du_fin_de_levenement')|date("H:i") }}</span>
+								{% endif %}
+							{% endif %}
+						</li>
+					</ul>
+					<p>{{ post.meta('description') }}</p>
+				</div>
+			</div>
+
+		{% endif %}
+
+	</div>
+</div></section>{% endblock %}

@@ -1,0 +1,42 @@
+<footer class="header-footer-group">
+
+	<nav id="footer-nav" class="navbar navbar-expand-lg navbar-light bg-light">
+		<div class="container mod-container mod-container6">
+
+			<div class="row w-100 align-items-end">
+
+				{% if footer.items is not empty %}
+					{% set  i = 0 %}
+					{% for item in footer.items %}
+						{% set i = i + 1 %}
+						{% if i == 1 %}
+
+
+							<a id="footerBrand" class="navbar-brand" href="#site-header"><img class="py-2" src="{{ item.url|retina(0.20) }}"></a>
+
+							<ul id="footerNav" class="navbar-nav mx-auto">
+							{% else %}
+
+
+								<li class="nav-item  {{ item.classes|join(' ') }}">
+									<a class="nav-link " href="{{ item.link }}">
+										<strong>{{ item.title }}</strong>
+									</a>
+
+								</li>
+
+							{% endif %}
+							{% if item.title == "Logo" or item.title == "Contacts" %}
+								{% else %}
+
+									<li class="nav-item mobile">
+										<a class="nav-link ">|</a>
+									</li>
+							{% endif %}
+						{% endfor %}
+					</ul>
+
+				{% endif %}
+			</div>
+		</div>
+	</nav>

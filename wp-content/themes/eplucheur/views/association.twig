@@ -1,0 +1,70 @@
+{% extends "base.twig" %}
+
+{% block head %}
+	<title>{{ post.title }}</title>
+{% endblock %}
+
+{% block content %}
+
+
+	<div class="container mod-container">
+		<div class="row d-flex justify-content-center">
+			<img class="img-fluid rounded" src="{{ Image(post.image_en_tete)|retina(2)|resize(1140,474, '#FFFFFF') }}" alt="">
+
+
+			<div class="col-lg-6 mod-container8 txt-prez">
+				<div class="img-prez order-lg-1">
+					<h2 class="pr-5 py-4 pl-3 titre-asso">{{ post.titre_association }}</h2>
+					<div class=" pr-5 pl-3 text-asso">{{ post.meta('lassociation') }}</div>
+				</div>
+			</div>
+
+			<div class="col-lg-6 mod-container8 rounded imageAsso" style="background-image: url('{{ Image(post.image_droite) }}'); background-position: {{ post.meta('cadrage_de_limage_droite')[" cadrage_horizontal"] }} {{ post.meta('cadrage_de_limage_droite')[" cadrage_vertical"] }};"></div>
+
+
+			<div class="col-lg-6 mod-container8 rounded imageAsso" style="background-image: url('{{ Image(post.image_gauche) }}'); background-position: {{ post.meta('cadrage_de_limage_gauche')[" cadrage_horizontal"] }} {{ post.meta('cadrage_de_limage_gauche')[" cadrage_vertical"] }};"></div>
+
+			<div class="col-lg-6 mod-container8 txt-prez">
+				<div class=" img-prez order-lg-1">
+					<h2 class="pr-5 py-4 pl-3 titre-asso">{{ post.titre_a_propos }}</h2>
+					<div class=" pr-5 pl-3 text-asso">{{ post.meta('a_propos') }}</div>
+				</div>
+			</div>
+
+			<div class="row mod-container8 text-center pt-4">
+				<div class="col-lg-4 ">
+					<img class="img-fluid rounded" src="{{ Image(post.image_bas_de_page_gauche)|retina(2)|letterbox(380,380, '#FFFFFF') }}" alt="">
+					<div class="legende px-2 py-3 p-1 pl-1 text-left">
+						<p class="mini-font">
+							<i>{{ post.legende_image_gauche }}</i>
+						</p>
+					</div>
+				</div>
+
+				<div class="col-lg-4 ">
+					<img class="img-fluid rounded" src="{{ Image(post.image_bas_de_page_milieu)|retina(2)|letterbox(380,380, '#FFFFFF') }}" alt="">
+
+					<div class="legende px-2 py-3 p-1 pl-1 text-left">
+						<p class="mini-font">
+							<i>{{ post.legende_image_centre }}</i>
+						</p>
+					</div>
+				</div>
+				<div class="col-lg-4">
+					<img class="img-fluid rounded" src="{{ Image(post.image_bas_de_page_droite)|retina(2)|letterbox(380,380, '#FFFFFF') }}" alt="">
+
+					<div class="legende px-2 py-3 p-1 pl-1 text-left">
+						<p class="mini-font">
+							<i>{{ post.legende_image_droite }}</i>
+						</p>
+					</div>
+				</div>
+
+			</div>
+
+			{% for item in post.meta('ligne') %}
+				{% include "/partials/ajoutContenu.twig" %}
+			{% endfor %}
+		</div>
+	</div>
+{% endblock %}

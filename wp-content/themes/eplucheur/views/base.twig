@@ -1,0 +1,22 @@
+{% include "./partials/html-header.twig" %}
+{% block head %}
+    <!-- This is where you’ll put template-specific stuff that needs to go in the head tags like custom meta tags, etc. -->
+{% endblock %}
+{{ function('wp_head') }}
+</head>
+
+<body {{ function(" body_class()")}}>
+	
+
+<div id="site-header"></div>
+{% include "/partials/menu.twig" %}
+<div class="fix-bot ">
+{% block content %}
+
+{% endblock %}
+</div>
+    
+{% include "/partials/footer.twig" %}
+{{ function('wp_footer') }}
+
+</footer><!-- #site-footer -->

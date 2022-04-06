@@ -1,0 +1,164 @@
+{% extends "base.twig" %}
+
+{% block head %}
+	<title>OVB pour sortir du prêt-à-penser</title>
+{% endblock %}
+
+{% block content %}
+
+
+	<div class="container-fluid rectangle9">
+
+		<div class="container mod-container mod-container2 pt-5">
+
+			{% set i = 0 %}
+			{% for pole in poles %}
+				{% set i = i + 1 %}
+			{% endfor %}
+			{% set j = 0 %}
+			{% if i%3 == 0  %}
+				{% for pole in poles %}
+					{% set j = j+1 %}
+					{% if (j%3 == 1 and i%3 == 0) %}
+
+						<div class=" row justify-content-center">
+						{% endif %}
+						<div class="col-md pb-5 row">
+							<div class=" mod-container4">
+
+								<div class="zeromarge" style="background-image: url('{{ Image(pole.image)}}');  background-position: {{ pole.meta('cadrage_de_limage')[" cadrage_horizontal"] }} {{ pole.meta('cadrage_de_limage')[" cadrage_vertical"] }};"></div>
+								<div class="titrePole d-flex h4 align-items-end pb-2 ">
+
+									<strong class=" medium">{{ pole.title }}</strong>
+
+								</div>
+
+								<div class="">
+									<span class="poleDesc Siglight petit">{{ pole.meta('descriptif') }}</span>
+								</div>
+
+
+							</div>
+							<div class="d-flex align-items-end container mod-container5 ">
+
+
+								<a class="liensnoir" href="{{pole.link }}">
+									<span class="point d-flex ">...</span>
+								</a>
+							</div>
+
+						</div>
+						{% if (j%3 == 0 and i%3 == 0) %}
+						</div>
+					{% endif %}
+				{% endfor %}
+			{% elseif  i%2 == 0   %}
+
+				{% for pole in poles %}
+					{% set j = j+1 %}
+					{% if (j%2 == 1 and i%2 == 0) %}
+
+						<div class=" row ">
+						{% endif %}
+						<div class="col-md pb-5 row" style="padding-left: 03px !important ;padding-right: 30px !important;">
+							<div class=" mod-container42">
+
+								<div class="zeromarge2" style="background-image: url('{{ Image(pole.image)}}');  background-position: {{ pole.meta('cadrage_de_limage')[" cadrage_horizontal"] }} {{ pole.meta('cadrage_de_limage')[" cadrage_vertical"] }};"></div>
+								<div class="titrePole d-flex h4 align-items-end pb-2 ">
+
+									<strong class=" medium">{{ pole.title }}</strong>
+
+								</div>
+
+								<div class="">
+									<span class="poleDesc Siglight petit">{{ pole.meta('descriptif') }}</span>
+								</div>
+
+
+								<div class="d-flex align-items-end container mod-container5 ">
+
+
+									<a class="liensnoir" href="{{pole.link }}">
+										<span class="point d-flex ">...</span>
+									</a>
+								</div>
+							</div>
+
+						</div>
+						{% if (j%2 == 0 and i%2 == 0) %}
+						</div>
+					{% endif %}
+				{% endfor %}
+			{% endif %}
+		</div>
+	</div>
+
+	<div class="container-fluid midCenter">
+		<div class="container mod-container">
+			<div class="  row justify-content-center">
+
+				<div class=" img-prez col-lg-6 order-lg-2" style="background-image: url('{{ Image(presentation.image('medium')) }}');background-position: {{ presentation.meta('cadrage_de_limage')[" cadrage_horizontal"] }} {{ presentation.meta('cadrage_de_limage')[" cadrage_vertical"] }};"></div>
+				<div class=" mod-container3 px-5 col-lg-6 col-lg-63 order-lg-1" style="background-image: url('{{ Image(presentation.background) }}')" ;>
+
+
+					<h1 class="pb-3 pt-3 ">
+						<strong class="titre-prez">{{ presentation.titre }}</strong>
+					</h1>
+					<div class="text-prez ">{{ presentation.meta('descriptif') }}</div>
+
+
+				</div>
+
+
+			</div>
+		</div>
+	</div>
+
+
+	<div class="container-fluid gris midCenter">
+		<div class="container mod-container mod-container2 pt-5 py-5">
+
+			<div class="row ">
+				<div id="titreActu" class="col-md-12 pb-4 row">
+					<h2 class="w-100">
+						<strong>ça déboite !</strong>
+					</h2>
+					<p>L'actu d'OVB</p>
+					<p></p>
+				</div>
+				{% for post in posts %}
+					<div class="col-md pb-5 row">
+						<div class=" mod-container4">
+							{% if post.thumbnail.src is not empty %}
+								<div class="zeromarge pt-2 rounded" style="background-image: url('{{ Image(post.thumbnail.src)}}');background-position: {{ post.meta('cadrage_de_limage')[" cadrage_horizontal"] }} {{ post.meta('cadrage_de_limage')[" cadrage_vertical"] }};"></div>
+							{% endif %}
+							<div class="titreActu pb-2 {% if post.thumbnail.src is not empty %}pt-3{% endif %}">
+								<h4>
+									<strong>{{ post.title }}</strong>
+								</h4>
+								<p class="date">{{ post.post_date_gmt|date("d/m/Y", false) }}</p><br/>
+
+
+							</div>
+
+							<div class="">
+								<span class="poleDesc Siglight petit">
+									{{ post.content|truncate(25) }}</span>
+							</div>
+
+
+							<div class="d-flex align-items-end container mod-container5 ">
+
+
+								<a class="liensnoir" href="{{post.link }}">
+									<span class="point d-flex ">...</span>
+								</a>
+							</div>
+
+						</div>
+					</div>
+				{% endfor %}
+			</div>
+		</div>
+	</div>
+</div>{% endblock %}

@@ -1,0 +1,22 @@
+{% extends "base.twig" %}
+
+{% block head %}
+		<title>{{ post.title }}{% if post.auteur is not empty %}
+		 par {{ post.auteur }}{% endif %}</title>
+{% endblock %}
+
+{% block content %}
+    
+<section>
+	
+		<div class="container text-center">
+			<div class="col-8 offset-2">
+			<h1 class="pt-4">{{ post.title }}</h1>
+			<p>{{ post.auteur }}</p>
+			<img class="img-fluid rounded pt-4" src="{{ post.meta('image') }}">
+			<p>{{ post.legende }}</p>
+			</div>
+		</div>
+	
+</section>
+{% endblock %}

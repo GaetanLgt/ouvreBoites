@@ -1,0 +1,196 @@
+
+			{% if item["type_de_ligne"] == "Pleine page"  %}
+						<div class="row rounded d-flex justify-content-center container mod-container">
+							{% if item["pleine_page"]["pleine_page-texte_ou_image"] == "texte" %}
+								<div class="padSmall3 col-12 col-lg2">
+									<p>{{ item["pleine_page"]["pleine_page_texte"] }}</p>
+								</div>
+							{% elseif item["pleine_page"]["pleine_page-texte_ou_image"] == "image" %}
+								<div class="padSmall3 text-center col-12 col-lg2">
+									<div class="ajout rounded py-1" style="background-image: url('{{ Image(item["pleine_page"]["pleine_page_image"])}}');background-position: {{ item["pleine_page"]["pleine_page_image_cadrage_horizontal"] }} {{ item["pleine_page"]["pleine_page_image_cadrage_vertical"] }};" ></div>
+								</div>
+							{% endif %}
+						</div>
+					{% elseif item["type_de_ligne"] == "demie-page I demie-page" %}
+						<div class="row rounded justify-content-center container mod-container">
+							{% if item["demie-page_i_demie-page"]["champ_gauche-texte_ou_image"] == "texte" %}
+								<div class="padSmall3 col-lg-6 col-lg-62">
+									<p>{{ item["demie-page_i_demie-page"]["champ_gauche_texte"] }}</p>
+								</div>
+							{% elseif item["demie-page_i_demie-page"]["champ_gauche-texte_ou_image"] == "image" %}
+								<div class="padSmall3 text-center col-lg-6 col-lg-62">
+									<div class="ajout rounded py-1" style="background-image: url('{{ Image(item["demie-page_i_demie-page"]["champ_gauche_image"])}}');background-position: {{ item["demie-page_i_demie-page"]["champ_gauche_image_cadrage_horizontal"] }} {{ item["demie-page_i_demie-page"]["champ_gauche_image_cadrage_vertical"] }};" ></div>
+								</div>
+							{% endif %}
+							{% if item["demie-page_i_demie-page"]["champ_droit-texte_ou_image"] == "texte" %}
+								<div class="padSmall3 col-lg-6 col-lg-62">
+									<p>{{ item["demie-page_i_demie-page"]["champ_droit_texte"] }}</p>
+								</div>
+							{% elseif item["demie-page_i_demie-page"]["champ_droit-texte_ou_image"] == "image" %}
+								<div class="padSmall3 text-center col-lg-6 col-lg-62">
+									<div class="ajout rounded py-1" style="background-image: url('{{ Image(item["demie-page_i_demie-page"]["champ_droit_image"])}}');background-position: {{ item["demie-page_i_demie-page"]["champ_droit_image_cadrage_horizontal"] }} {{ item["demie-page_i_demie-page"]["champ_droit_image_cadrage_vertical"] }};" ></div>
+								</div>
+							{% endif %}
+						</div>
+					{% elseif item["type_de_ligne"] == "tiers de page I tiers de page  I tiers de page" %}
+						<div class="row rounded d-flex justify-content-center container mod-container my-1 ">
+							{% if item["tiers_de_page_i_tiers_de_page__i_tiers_de_page"]["tiers_de_page_gauche-texte_ou_image"] == "texte" %}
+								<div class="padSmall3 col-lg col-lg2">
+									<p>{{ item["tiers_de_page_i_tiers_de_page__i_tiers_de_page"]["tiers_de_page_gauche_texte"] }}</p>
+								</div>
+							{% elseif item["tiers_de_page_i_tiers_de_page__i_tiers_de_page"]["tiers_de_page_gauche-texte_ou_image"] == "image" %}
+								<div class="padSmall3 text-center col-lg col-lg2">
+									<div class="ajout rounded py-1" style="background-image: url('{{ Image(item["tiers_de_page_i_tiers_de_page__i_tiers_de_page"]["tiers_de_page_gauche_image"])}}');background-position: {{ item["tiers_de_page_i_tiers_de_page__i_tiers_de_page"]["tiers_de_page_gauche_image_cadrage_horizontal"] }} {{ item["tiers_de_page_i_tiers_de_page__i_tiers_de_page"]["tiers_de_page_gauche_image_cadrage_vertical"] }};" ></div>
+								</div>
+							{% endif %}
+							{% if item["tiers_de_page_i_tiers_de_page__i_tiers_de_page"]["tiers_de_page_centre-texte_ou_image"] == "texte" %}
+								<div class="padSmall3 col-lg col-lg2">
+									<p>{{ item["tiers_de_page_i_tiers_de_page__i_tiers_de_page"]["tiers_de_page_centre_texte"] }}</p>
+								</div>
+							{% elseif item["tiers_de_page_i_tiers_de_page__i_tiers_de_page"]["tiers_de_page_centre-texte_ou_image"] == "image" %}
+								<div class="padSmall3 text-center col-lg col-lg2">
+									<div class="ajout rounded py-1" style="background-image: url('{{ Image(item["tiers_de_page_i_tiers_de_page__i_tiers_de_page"]["tiers_de_page_centre_image"])}}');background-position: {{ item["tiers_de_page_i_tiers_de_page__i_tiers_de_page"]["tiers_de_page_centre_image_cadrage_horizontal"] }} {{ item["tiers_de_page_i_tiers_de_page__i_tiers_de_page"]["tiers_de_page_centre_image_cadrage_vertical"] }};" ></div>
+								</div>
+							{% endif %}
+							{% if item["tiers_de_page_i_tiers_de_page__i_tiers_de_page"]["tiers_de_page_droit-texte_ou_image"] == "texte" %}
+								<div class="padSmall3 col-lg col-lg2">
+									<p>{{ item["tiers_de_page_i_tiers_de_page__i_tiers_de_page"]["tiers_de_page_droit_texte"] }}</p>
+								</div>
+							{% elseif item["tiers_de_page_i_tiers_de_page__i_tiers_de_page"]["tiers_de_page_droit-texte_ou_image"] == "image" %}
+								<div class="padSmall3 text-center col-lg col-lg2">
+									<div class="ajout rounded py-1" style="background-image: url('{{ Image(item["tiers_de_page_i_tiers_de_page__i_tiers_de_page"]["tiers_de_page_droit_image"])}}');background-position: {{ item["tiers_de_page_i_tiers_de_page__i_tiers_de_page"]["tiers_de_page_droit_image_cadrage_horizontal"] }} {{ item["tiers_de_page_i_tiers_de_page__i_tiers_de_page"]["tiers_de_page_droit_image_cadrage_vertical"] }};" ></div>
+								</div>
+							{% endif %}
+						</div>
+					{% elseif item["type_de_ligne"] == "demie-page I quart-de-page I quart-de-page" %}
+						<div class="row rounded d-flex justify-content-center container mod-container my-1 ">
+							{% if item["demie-page_i_quart-de-page_i_quart-de-page"]["demie-page_gauche-texte_ou_image"] == "texte" %}
+								<div class="padSmall3 col-lg-6 col-lg-62">
+									<p>{{ item["demie-page_i_quart-de-page_i_quart-de-page"]["demie-page_gauche_texte"] }}</p>
+								</div>
+							{% elseif item["demie-page_i_quart-de-page_i_quart-de-page"]["demie-page_gauche-texte_ou_image"] == "image" %}
+								<div class="padSmall3 text-center col-lg-6 col-lg-62">
+									<div class="ajout rounded py-1" style="background-image: url('{{ Image(item["demie-page_i_quart-de-page_i_quart-de-page"]["demie-page_gauche_image"])}}');background-position: {{ item["demie-page_i_quart-de-page_i_quart-de-page"]["demie-page_gauche_image_cadrage_horizontal"] }} {{ item["demie-page_i_quart-de-page_i_quart-de-page"]["demie-page_gauche_image_cadrage_vertical"] }};" ></div>
+								</div>
+							{% endif %}
+							{% if item["demie-page_i_quart-de-page_i_quart-de-page"]["quart-de-page_centre-texte_ou_image"] == "texte" %}
+								<div class="padSmall3 col-lg-3">
+									<p>{{ item["demie-page_i_quart-de-page_i_quart-de-page"]["quart-de-page_centre_texte"] }}</p>
+								</div>
+							{% elseif item["demie-page_i_quart-de-page_i_quart-de-page"]["quart-de-page_centre-texte_ou_image"] == "image" %}
+								<div class="padSmall3 text-center col-lg-3">
+									<div class="ajout rounded py-1" style="background-image: url('{{ Image(item["demie-page_i_quart-de-page_i_quart-de-page"]["quart-de-page_centre_image"])}}');background-position: {{ item["demie-page_i_quart-de-page_i_quart-de-page"]["quart-de-page_centre_image_cadrage_horizontal"] }} {{ item["demie-page_i_quart-de-page_i_quart-de-page"]["quart-de-page_centre_image_cadrage_vertical"] }};" ></div>
+								</div>
+							{% endif %}
+							{% if item["demie-page_i_quart-de-page_i_quart-de-page"]["quart-de-page_droit-texte_ou_image"] == "texte" %}
+								<div class="padSmall3 col-lg-3">
+									<p>{{ item["demie-page_i_quart-de-page_i_quart-de-page"]["quart-de-page_droit_texte"] }}</p>
+								</div>
+							{% elseif item["demie-page_i_quart-de-page_i_quart-de-page"]["quart-de-page_droit-texte_ou_image"] == "image" %}
+								<div class="padSmall3 text-center col-lg-3">
+									<div class="ajout rounded py-1" style="background-image: url('{{ Image(item["demie-page_i_quart-de-page_i_quart-de-page"]["quart-de-page_droit_image"])}}');background-position: {{ item["demie-page_i_quart-de-page_i_quart-de-page"]["quart-de-page_droit_image_cadrage_horizontal"] }} {{ item["demie-page_i_quart-de-page_i_quart-de-page"]["quart-de-page_droit_image_cadrage_vertical"] }};" ></div>
+								</div>
+							{% endif %}
+						</div>
+					{% elseif item["type_de_ligne"] == "quart-de-page I demie-page I quart-de-page" %}
+						<div class="row rounded d-flex justify-content-center container mod-container my-1 ">
+							{% if item["quart-de-page_i_demie-page_i_quart-de-page"]["quart-de-page_gauche-texte_ou_image"] == "texte" %}
+								<div class="padSmall3 col-lg-3">
+									<p>{{ item["quart-de-page_i_demie-page_i_quart-de-page"]["quart-de-page_gauche_texte"] }}</p>
+								</div>
+							{% elseif item["quart-de-page_i_demie-page_i_quart-de-page"]["quart-de-page_gauche-texte_ou_image"] == "image" %}
+								<div class="padSmall3 text-center col-lg-3">
+									<div class="ajout rounded py-1" style="background-image: url('{{ Image(item["quart-de-page_i_demie-page_i_quart-de-page"]["quart-de-page_gauche_image"])}}');background-position: {{ item["quart-de-page_i_demie-page_i_quart-de-page"]["quart-de-page_gauche_image_cadrage_horizontal"] }} {{ item["quart-de-page_i_demie-page_i_quart-de-page"]["quart-de-page_gauche_image_cadrage_vertical"] }};" ></div>
+								</div>
+							{% endif %}
+							{% if item["quart-de-page_i_demie-page_i_quart-de-page"]["demie-page_centre-texte_ou_image"] == "texte" %}
+								<div class="padSmall3 col-lg-6 col-lg-62">
+									<p>{{ item["quart-de-page_i_demie-page_i_quart-de-page"]["demie-page_centre_texte"] }}</p>
+								</div>
+							{% elseif item["quart-de-page_i_demie-page_i_quart-de-page"]["demie-page_centre-texte_ou_image"] == "image" %}
+								<div class="padSmall3 text-center col-lg-6 col-lg-62">
+									<div class="ajout rounded py-1" style="background-image: url('{{ Image(item["quart-de-page_i_demie-page_i_quart-de-page"]["demie-page_centre_image"])}}');background-position: {{ item["quart-de-page_i_demie-page_i_quart-de-page"]["demie-page_centre_image_cadrage_horizontal"] }} {{ item["quart-de-page_i_demie-page_i_quart-de-page"]["demie-page_centre_image_cadrage_vertical"] }};" ></div>
+								</div>
+							{% endif %}
+							{% if item["quart-de-page_i_demie-page_i_quart-de-page"]["quart-de-page_droit-texte_ou_image"] == "texte" %}
+								<div class="padSmall3 col-lg-3">
+									<p>{{ item["quart-de-page_i_demie-page_i_quart-de-page"]["quart-de-page_droit_texte"] }}</p>
+								</div>
+							{% elseif item["quart-de-page_i_demie-page_i_quart-de-page"]["quart-de-page_droit-texte_ou_image"] == "image" %}
+								<div class="padSmall3 text-center col-lg-3">
+									<div class="ajout rounded py-1" style="background-image: url('{{ Image(item["quart-de-page_i_demie-page_i_quart-de-page"]["quart-de-page_droit_image"])}}');background-position: {{ item["quart-de-page_i_demie-page_i_quart-de-page"]["quart-de-page_droit_image_cadrage_horizontal"] }} {{ item["quart-de-page_i_demie-page_i_quart-de-page"]["quart-de-page_droit_image_cadrage_vertical"] }};" ></div>
+								</div>
+							{% endif %}
+						</div>
+					{% elseif item["type_de_ligne"] == "quart-de-page I quart-de-page I demie-page" %}
+						<div class="row rounded d-flex justify-content-center container mod-container my-1 ">
+							{% if item["quart-de-page_i_quart-de-page_i_demie-page"]["quart-de-page_gauche-texte_ou_image"] == "texte" %}
+								<div class="padSmall3 col-lg-3">
+									<p>{{ item["quart-de-page_i_quart-de-page_i_demie-page"]["quart-de-page_gauche_texte"] }}</p>
+								</div>
+							{% elseif item["quart-de-page_i_quart-de-page_i_demie-page"]["quart-de-page_gauche-texte_ou_image"] == "image" %}
+								<div class="padSmall3 text-center col-lg-3">
+									<div class="ajout rounded py-1" style="background-image: url('{{ Image(item["quart-de-page_i_quart-de-page_i_demie-page"]["quart-de-page_gauche_image"])}}');background-position: {{ item["quart-de-page_i_quart-de-page_i_demie-page"]["quart-de-page_gauche_image_cadrage_horizontal"] }} {{ item["quart-de-page_i_quart-de-page_i_demie-page"]["quart-de-page_gauche_image_cadrage_vertical"] }};" ></div>
+								</div>
+							{% endif %}
+							{% if item["quart-de-page_i_quart-de-page_i_demie-page"]["quart-de-page_centre-texte_ou_image"] == "texte" %}
+								<div class="padSmall3 col-lg-3">
+									<p>{{ item["quart-de-page_i_quart-de-page_i_demie-page"]["quart-de-page_centre_texte"] }}</p>
+								</div>
+							{% elseif item["quart-de-page_i_quart-de-page_i_demie-page"]["quart-de-page_centre-texte_ou_image"] == "image" %}
+								<div class="padSmall3 text-center col-lg-3">
+									<div class="ajout rounded py-1" style="background-image: url('{{ Image(item["quart-de-page_i_quart-de-page_i_demie-page"]["quart-de-page_centre_image"])}}');background-position: {{ item["quart-de-page_i_quart-de-page_i_demie-page"]["quart-de-page_centre_image_cadrage_horizontal"] }} {{ item["quart-de-page_i_quart-de-page_i_demie-page"]["quart-de-page_centre_image_cadrage_vertical"] }};" ></div>
+								</div>
+							{% endif %}
+							{% if item["quart-de-page_i_quart-de-page_i_demie-page"]["demi-page_droite-texte_ou_image"] == "texte" %}
+								<div class="padSmall3 col-lg-6 col-lg-62">
+									<p>{{ item["quart-de-page_i_quart-de-page_i_demie-page"]["demi-page_droite_texte"] }}</p>
+								</div>
+							{% elseif item["quart-de-page_i_quart-de-page_i_demie-page"]["demi-page_droite-texte_ou_image"] == "image" %}
+								<div class="padSmall3 text-center col-lg-6 col-lg-62">
+									<div class="ajout rounded py-1" style="background-image: url('{{ Image(item["quart-de-page_i_quart-de-page_i_demie-page"]["demi-page_droite_image"])}}');background-position: {{ item["quart-de-page_i_quart-de-page_i_demie-page"]["demi-page_droite_image_cadrage_horizontal"] }} {{ item["quart-de-page_i_quart-de-page_i_demie-page"]["demi-page_droite_image_cadrage_vertical"] }};" ></div>
+								</div>
+							{% endif %}
+						</div>
+					{% elseif item["type_de_ligne"] == "quart-de-page I quart-de-page I quart-de-page I quart-de-page" %}
+						<div class="row rounded d-flex justify-content-center container mod-container my-1 ">
+							{% if item["quart-de-page_i_quart-de-page_i_quart-de-page_i_quart-de-page"]["quart-de-page_gauche-texte_ou_image"] == "texte" %}
+								<div class="padSmall3 col-lg-3">
+									<p>{{ item["quart-de-page_i_quart-de-page_i_quart-de-page_i_quart-de-page"]["quart-de-page_gauche_texte"] }}</p>
+								</div>
+							{% elseif item["quart-de-page_i_quart-de-page_i_quart-de-page_i_quart-de-page"]["quart-de-page_gauche-texte_ou_image"] == "image" %}
+								<div class="padSmall3 text-center col-lg-3">
+									<div class="ajout rounded py-1" style="background-image: url('{{ Image(item["quart-de-page_i_quart-de-page_i_quart-de-page_i_quart-de-page"]["quart-de-page_gauche_image"])}}');background-position: {{ item["quart-de-page_i_quart-de-page_i_quart-de-page_i_quart-de-page"]["quart-de-page_gauche_image_cadrage_horizontal"] }} {{ item["quart-de-page_i_quart-de-page_i_quart-de-page_i_quart-de-page"]["quart-de-page_gauche_image_cadrage_vertical"] }};" ></div>
+								</div>
+							{% endif %}
+							{% if item["quart-de-page_i_quart-de-page_i_quart-de-page_i_quart-de-page"]["quart-de-page_gauche_centre-texte_ou_image"] == "texte" %}
+								<div class="padSmall3 col-lg-3">
+									<p>{{ item["quart-de-page_i_quart-de-page_i_quart-de-page_i_quart-de-page"]["quart-de-page_gauche_centre_texte"] }}</p>
+								</div>
+							{% elseif item["quart-de-page_i_quart-de-page_i_quart-de-page_i_quart-de-page"]["quart-de-page_gauche_centre-texte_ou_image"] == "image" %}
+								<div class="padSmall3 text-center col-lg-3">
+									<div class="ajout rounded py-1" style="background-image: url('{{ Image(item["quart-de-page_i_quart-de-page_i_quart-de-page_i_quart-de-page"]["quart-de-page_gauche_centre_image"])}}');background-position: {{ item["quart-de-page_i_quart-de-page_i_quart-de-page_i_quart-de-page"]["quart-de-page_gauche_centre_image_cadrage_horizontal"] }} {{ item["quart-de-page_i_quart-de-page_i_quart-de-page_i_quart-de-page"]["quart-de-page_gauche_centre_image_cadrage_vertical"] }};" ></div>
+								</div>
+							{% endif %}
+							{% if item["quart-de-page_i_quart-de-page_i_quart-de-page_i_quart-de-page"]["quart-de-page_droit_centre-texte_ou_image"] == "texte" %}
+								<div class="padSmall3 col-lg-3">
+									<p>{{ item["quart-de-page_i_quart-de-page_i_quart-de-page_i_quart-de-page"]["quart-de-page_droit_centre_texte"] }}</p>
+								</div>
+							{% elseif item["quart-de-page_i_quart-de-page_i_quart-de-page_i_quart-de-page"]["quart-de-page_droit_centre-texte_ou_image"] == "image" %}
+								<div class="padSmall3 text-center col-lg-3">
+									<div class="ajout rounded py-1" style="background-image: url('{{ Image(item["quart-de-page_i_quart-de-page_i_quart-de-page_i_quart-de-page"]["quart-de-page_droit_centre_image"])}}');background-position: {{ item["quart-de-page_i_quart-de-page_i_quart-de-page_i_quart-de-page"]["quart-de-page_droit_centre_image_cadrage_horizontal"] }} {{ item["quart-de-page_i_quart-de-page_i_quart-de-page_i_quart-de-page"]["quart-de-page_droit_centre_image_cadrage_vertical"] }};" ></div>
+								</div>
+							{% endif %}
+							{% if item["quart-de-page_i_quart-de-page_i_quart-de-page_i_quart-de-page"]["quart-de-page_droit-texte_ou_image"] == "texte" %}
+								<div class="padSmall3 col-lg-3">
+									<p>{{ item["quart-de-page_i_quart-de-page_i_quart-de-page_i_quart-de-page"]["quart-de-page_droit_texte"] }}</p>
+								</div>
+							{% elseif item["quart-de-page_i_quart-de-page_i_quart-de-page_i_quart-de-page"]["quart-de-page_droit-texte_ou_image"] == "image" %}
+								<div class="padSmall3 text-center col-lg-3">
+									<div class="ajout rounded py-1" style="background-image: url('{{ Image(item["quart-de-page_i_quart-de-page_i_quart-de-page_i_quart-de-page"]["quart-de-page_droit_image"])}}');background-position: {{ item["quart-de-page_i_quart-de-page_i_quart-de-page_i_quart-de-page"]["quart-de-page_droit_image_cadrage_horizontal"] }} {{ item["quart-de-page_i_quart-de-page_i_quart-de-page_i_quart-de-page"]["quart-de-page_droit_image_cadrage_vertical"] }};" ></div>
+								</div>
+							{% endif %}
+						</div>
+					{% endif %}
+				
+		
