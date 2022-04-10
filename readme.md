@@ -35,16 +35,38 @@ Installation
     
   Puis configuer la connexion :
 
-    Les paramètres de la connexion à la base de donne sont stockées dans la variable DATABASE_URL qui existe dans la fichier .env.
+    Les paramètres de la connexion à la base de donne sont stockées dans la variable DATABASE_URL qui existe dans la fichier wp-config.php.
     Exemple:
-    DATABASE_URL=‘mysql://db_user:db_password@127.0.0.1:3306/db_name’
+    // ** Réglages MySQL - Votre hébergeur doit vous fournir ces informations. ** //
+    // Nom de la base de données de WordPress.
+    define('DB_NAME', 'ouvreboites');
+
+    // Utilisateur de la base de données MySQL.
+    define('DB_USER', 'root');
+
+    // Mot de passe de la base de données MySQL.
+    define('DB_PASSWORD', '');
+
+    // Adresse de l’hébergement MySQL.
+    define('DB_HOST', 'localhost');
+
+    // Jeu de caractères à utiliser par la base de données lors de la création des tables.
+    define('DB_CHARSET', 'utf8mb4');
+    
+    
     db_user: root
     db_password: par défaut vide 
     db_name: nom de votre base par exemple 'ouvreboites'
-
-DATABASE_URL=mysql://admin:Oracle$1986@127.0.0.1:3306/ouvreboites
+ 
+    exectuer dans la requête sql
+    Exemple:
+    
+    UPDATE `wp_options` SET `option_value` = 'ADRESSE_D_HERGEMENT' WHERE `wp_options`.`option_id` = `2`,`1`;
+    
+    *ADRESSE_D_HERGEMENT = http://localhost/ouvreBoites/
+   
 
 #3- Exécution du projet
 -----------------------
 
-    symfony server:start
+    Aller sur le server local
