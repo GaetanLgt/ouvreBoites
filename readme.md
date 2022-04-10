@@ -58,11 +58,11 @@ Installation
     db_password: par défaut vide 
     db_name: nom de votre base par exemple 'ouvreboites'
  
-    exectuer dans la requête sql
+  exectuer dans la requête sql en mofifiant avant ADRESSE_D_HERBERGEMENT
     
     UPDATE `wp_options` SET `option_value` = 'ADRESSE_D_HERBERGEMENT' WHERE `wp_options`.`option_id` = `2`,`1`;
     
-    *ADRESSE_D_HERBERGEMENT = http://localhost/ouvreBoites/
+   *ADRESSE_D_HERBERGEMENT = http://localhost/ouvreBoites/
    
 
 #3- Exécution du projet
