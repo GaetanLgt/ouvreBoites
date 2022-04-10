@@ -22,7 +22,7 @@ Installation
 #1- Création du projet:
 -----------------------
 
-  Dans le dossier de destination : 
+  Dans le dossier de destination (racine de serveur): 
   
   ````bash
   git clone https://github.com/GaetanLgt/ouvreBoites.git
@@ -68,4 +68,4 @@ Installation
 #3- Exécution du projet
 -----------------------
 
-    Aller sur le server local
+    http://localhost/ouvreBoites/
