@@ -60,9 +60,9 @@ Installation
  
     exectuer dans la requête sql
     
-    UPDATE `wp_options` SET `option_value` = 'ADRESSE_D_HERGEMENT' WHERE `wp_options`.`option_id` = `2`,`1`;
+    UPDATE `wp_options` SET `option_value` = 'ADRESSE_D_HERBERGEMENT' WHERE `wp_options`.`option_id` = `2`,`1`;
     
-    *ADRESSE_D_HERGEMENT = http://localhost/ouvreBoites/
+    *ADRESSE_D_HERBERGEMENT = http://localhost/ouvreBoites/
    
 
 #3- Exécution du projet
