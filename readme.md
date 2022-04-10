@@ -59,7 +59,6 @@ Installation
     db_name: nom de votre base par exemple 'ouvreboites'
  
     exectuer dans la requête sql
-    Exemple:
     
     UPDATE `wp_options` SET `option_value` = 'ADRESSE_D_HERGEMENT' WHERE `wp_options`.`option_id` = `2`,`1`;
     
