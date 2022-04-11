@@ -35,7 +35,7 @@ Installation
     
   Puis configuer la connexion :
 
-    Les paramètres de la connexion à la base de donne sont stockées dans la variable DATABASE_URL qui existe dans la fichier wp-config.php.
+  Les paramètres de la connexion à la base de donne sont stockées dans la variable DATABASE_URL qui existe dans la fichier wp-config.php.
     Exemple:
     // ** Réglages MySQL - Votre hébergeur doit vous fournir ces informations. ** //
     // Nom de la base de données de WordPress.
